@@ -1,0 +1,23 @@
+{
+  "name": "ordering-system-admin",
+  "version": "1.0.0",
+  "description": "Ordering-system provides friendly user interface for both customer and administrator. By which, customer can easily order the food they want on their own mobile device; administrator can also easily maintain the menu.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leftstick/ordering-system-admin.git"
+  },
+  "keywords": [
+    "ordering"
+  ],
+  "author": {
+    "name": "Howard.Zuo",
+    "email": "leftstick@qq.com",
+    "url": "https://github.com/leftstick"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leftstick/ordering-system-admin/issues"
+  },
+  "homepage": "https://github.com/leftstick/ordering-system-admin"
+}

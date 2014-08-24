@@ -1,0 +1,24 @@
+{
+  "name": "ordering-system-client",
+  "version": "1.0.0",
+  "description": "Ordering-system-client provides friendly user interface for customer. By which, customer can easily order the food they want on their own mobile device",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leftstick/ordering-system.git"
+  },
+  "keywords": [
+    "ordering",
+    "client"
+  ],
+  "author": {
+    "name": "Howard.Zuo",
+    "email": "leftstick@qq.com",
+    "url": "https://github.com/leftstick"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leftstick/ordering-system/issues"
+  },
+  "homepage": "https://github.com/leftstick/ordering-system/client"
+}

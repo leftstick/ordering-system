@@ -1,0 +1,24 @@
+<div content-for="title">
+  <h3>Welcome</h3>
+  <span class="subtitle">您已经成功连接“上海小南国（虹桥店）”免费WIFI网络</span>
+</div>
+<div class="scrollable gencode">
+  <div class="scrollable-content section">
+    <div bs-panel title="请选择您的就餐人数：{{ finalNum }}">
+      <div class="row genrow" ng-repeat="row in [0, 1, 2]">
+        <div class="col-xs-4 col-sm-4 col-md-4 genblock" ng-repeat="col in [1, 2, 3]">
+          <a ng-init="idStateMap[row + '-' + col] = {state: false, num: 3 * row + col}" id="{{ row + '-' + col }}" class="thumbnail gennum" toggle target="{{ row + '-' + col }}" toggleable active-class="active" exclusion-group="gennum">{{ 3 * row + col }}</a>
+        </div>
+      </div>
+      <br/>
+      <div class="row genrow">
+        <input ng-if="input.selectedNum === 0" ng-model="input.inputNum" type="number" class="form-control custom-code" placeholder="自选数字">
+      </div>
+      <br/>
+      <div class="row genrow">
+        <button ng-disabled="!finalNum || finalNum === 0" class="btn btn-info btn-block block-height" ng-click="confirm()">确认订位</button>
+      </div>
+    </div>
+    
+  </div>
+</div>

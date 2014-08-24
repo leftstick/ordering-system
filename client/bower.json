@@ -1,0 +1,31 @@
+{
+  "name": "ordering-system-client",
+  "version": "1.0.0",
+  "homepage": "https://github.com/leftstick/ordering-system/client",
+  "authors": [
+    "Howard.Zuo <leftstick@qq.com>"
+  ],
+  "description": "Ordering-system-client provides friendly user interface for customer. By which, customer can easily order the food they want on their own mobile device",
+  "keywords": [
+    "ordering",
+    "client"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.23",
+    "angular-touch": "~1.2.23",
+    "requirejs": "~2.1.14",
+    "lodash": "~2.4.1",
+    "require-css": "~0.1.5",
+    "mobile-angular-ui": "~1.1.0-beta.29",
+    "angular-route": "~1.2.23"
+  }
+}
