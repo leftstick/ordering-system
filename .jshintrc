@@ -5,7 +5,10 @@
         "angular": true,
         "define": true,
         "require": true,
-        "_": true
+        "requirejs": true,
+        "_": true,
+        "console": true,
+        "process": true
     },
     "globalstrict": true,
     "quotmark": true,
