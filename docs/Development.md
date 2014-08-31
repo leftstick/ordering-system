@@ -19,7 +19,7 @@
 #### Install bower dependencies for specified app ####
 
 ```powershell
-toolset.js -install
+toolset -install
 ```
 
 Choose the app that you'd like to play with, and press `Enter`. The bower dependencies will be installed for you.
@@ -28,7 +28,7 @@ Choose the app that you'd like to play with, and press `Enter`. The bower depend
 #### Start static webserver for specified app ####
 
 ```powershell
-toolset.js -start
+toolset -start
 ```
 
 Choose the app that you'd like to play with, and press `Enter`. A webserver launched for that app.
