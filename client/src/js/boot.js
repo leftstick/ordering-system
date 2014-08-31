@@ -13,6 +13,7 @@
         'fw/RouteConfig',
         'common/osloading/main',
         'common/osnavtop/main',
+        'common/osnumber/main',
         'common/osnavbottom/main',
         'features/gencode/main'
     ], function() {

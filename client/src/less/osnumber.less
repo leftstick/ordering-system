@@ -1,0 +1,22 @@
+.number-size() {
+    height: @block-height;
+    font-weight: bold;
+    font-size: @number-font-size;
+}
+
+os-number .input-group{
+
+    .input-group-addon{
+        .number-size();
+    }
+
+    .btn{
+        .number-size();
+        pointer-events: none;        
+    }
+}
+
+os-number .input-group-addon.active{
+    color: @app-content-bg-color;
+    background-color: @brand-primary;
+}

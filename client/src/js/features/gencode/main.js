@@ -4,7 +4,7 @@
  *   Defines a gencode feature
  *
  *  @author  Howard.Zuo
- *  @date    Aug 24th, 2014
+ *  @date    Aug 31th, 2014
  *
  * ******************************************************************************************************
  */
@@ -13,15 +13,18 @@
 
     define([
         'features/gencode/router/Routes',
-        'features/gencode/controller/GencodeController'
+        'features/gencode/controller/GencodeController',
+        'features/gencode/controller/CodeController'
     ], function(Routes,
-        GencodeController) {
+        GencodeController,
+        CodeController) {
 
             var moduleName = 'gencode';
 
             var module = angular.module(moduleName, []);
 
             module.controller('GencodeController', GencodeController);
+            module.controller('CodeController', CodeController);
 
 
 

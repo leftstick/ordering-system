@@ -1,29 +1,59 @@
-.gencode a.thumbnail.active,
-.gencode a.thumbnail:focus{
-    background-color: @brand-primary;
-    color: @app-content-bg-color;
-}
-.genrow{
-    padding-left: @genrow-boundary;
-    padding-right: @genrow-boundary;
+.row-setting(){
+    padding-left: @row-boundary;
+    padding-right: @row-boundary;
     margin-left: 0;
     margin-right: 0;
 }
-.genblock{
-    padding-left: @genblock-gap;
-    padding-right: @genblock-gap;
+
+.gencode {
+    a.thumbnail.active,
+    a.thumbnail:focus{
+        background-color: @brand-primary;
+        color: @app-content-bg-color;
+    }
+
+    .row{
+        .row-setting();
+    }
+
+    .genblock{
+        padding-left: @genblock-gap;
+        padding-right: @genblock-gap;
+    }
+
+    .thumbnail{
+        text-align: center;
+        margin-bottom:0;
+        font-size: @gencode-font-size;
+    }
+
+    .btn-block{
+        height: @block-height;
+        font-size: @custom-code-font-size;
+    }
 }
-.gennum{
-    text-align: center;
-    margin-bottom:0;
-    font-size: @gencode-font-size;
-}
-.custom-code{
-    text-align: center;
-    font-weight: bold;
-    font-size: @custom-code-font-size;
-    height: @custom-code-height;
-}
-.block-height{
-    height: @custom-code-height;
+
+.code{
+
+    .row{
+        .row-setting();
+    }
+
+    .code-block{
+        font-size: @code-block-font-size;
+        background-color: @disabled-background-color;
+        text-align: center;
+        line-height: 100px;
+    }
+
+    .wait-block{
+        font-size: @custom-code-font-size;
+        text-align: center;
+    }
+
+    .wait-number{
+        color: @brand-info;
+        font-weight: bold;
+    }
+
 }

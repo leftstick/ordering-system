@@ -18,13 +18,13 @@
          *
          * @constructor
          */
-        var GencodeController = function($rootScope, $scope, $timeout) {
+        var GencodeController = function($rootScope, $scope, $timeout, $location) {
             $rootScope.hasSubtitle = true;
             $rootScope.loadFin();
             $scope.finalNum = 0;
             $scope.input = {
                 selectedNum: 0,
-                inputNum: undefined
+                custom: undefined
             };
             $scope.idStateMap = {};
             var promise;
@@ -38,19 +38,21 @@
                     var found = _.find($scope.idStateMap, function(value) {
                         return value.state;
                     });
-                    if (!found) {
-                        $scope.input.inputNum = '';
+                    if (found) {
+                        $scope.input.selectedNum = found.num;
+                        $scope.finalNum = $scope.input.selectedNum;
+                    } else {
+                        $scope.input.selectedNum = 0;
+                        $scope.finalNum = $scope.input.custom;
                     }
-                    $scope.input.selectedNum = found ? found.num : 0;
-                    $scope.finalNum = $scope.input.selectedNum;
                 });
             });
 
             $scope.confirm = function() {
-                alert($scope.finalNum);
+                $location.url('/code/' + $scope.finalNum);
             };
 
-            $scope.$watch('input.inputNum', function(newValue) {
+            $scope.$watch('input.custom', function(newValue) {
                 $scope.finalNum = newValue;
             }, true);
 
@@ -61,7 +63,7 @@
 
         //Expose this controller definition as a RequireJS module
         //Note: specify the inline annotation explicity
-        return ['$rootScope', '$scope', '$timeout', GencodeController];
+        return ['$rootScope', '$scope', '$timeout', '$location', GencodeController];
 
     });
 

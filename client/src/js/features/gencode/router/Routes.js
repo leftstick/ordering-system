@@ -18,6 +18,11 @@
             when: '/',
             controller: 'GencodeController',
             templateUrl: features + '/gencode/partials/gencode.html'
+            }, {
+            isDefault: false,
+            when: '/code/:number',
+            controller: 'CodeController',
+            templateUrl: features + '/gencode/partials/code.html'
         }];
     });
 
