@@ -16,10 +16,11 @@ var yargs = require('yargs')
         's': 'start a static webserver for specified app',
         'i': 'install dependencies for specified app'
     })
+    .usage('Usage: toolset [options]')
     .boolean(['s', 'i']);
 
 var warn = function(msg) {
-    console.log(chalk.bold.yellow(msg));
+    console.log(chalk.bold.cyan(msg));
 };
 
 
