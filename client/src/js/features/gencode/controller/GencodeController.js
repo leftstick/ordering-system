@@ -5,13 +5,13 @@
  *  @date    Aug 24th, 2014
  *
  */
-(function(define, _) {
+(function(define) {
     'use strict';
 
     /**
      * Register the GencodeController class with RequireJS
      */
-    define([], function() {
+    define(['lodash'], function(_) {
 
         /**
          * Constructor function used by AngularJS to create instances of this controller
@@ -68,4 +68,4 @@
     });
 
 
-})(define, _);
+})(define);

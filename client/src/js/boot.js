@@ -5,35 +5,42 @@
  *  @date    Aug 24th, 2014
  *
  */
-(function(define, _) {
+(function(define) {
     'use strict';
 
     //specify each feature module here explicitly
     define([
+        'angular',
+        'lodash',
+        'angular-touch',
+        'angular-route',
+        'mobile-angular-ui',
+        'angular-number-picker',
+        'css!mobile-angular-ui-base-css',
+        'css!mailcss',
         'fw/RouteConfig',
         'common/osloading/main',
         'common/osnavtop/main',
-        'common/osnumber/main',
         'common/osnavbottom/main',
         'features/gencode/main'
     ], function() {
 
             var appName = 'ordering-client';
             var modules = Array.prototype.slice.call(arguments, 0);
+
+            var angular = modules[0];
+            var _ = modules[1];
+
             var features = _.filter(modules, function(module) {
-                return module && module.name && typeof module === 'object';
+                return angular.isObject(module) && module.name;
             });
 
-            var dependencies = ['ngTouch', 'ngRoute', 'mobile-angular-ui'];
+            var dependencies = ['ngTouch', 'ngRoute', 'mobile-angular-ui', 'angularNumberPicker'];
 
-            _.each(features, function(module) {
-                if (module.name) {
-                    dependencies.push(module.name);
-                }
-            });
+            Array.prototype.push.apply(dependencies, _.pluck(features, 'name'));
 
             var configModules = _.filter(modules, function(module) {
-                return module && module.call;
+                return angular.isObject(module) && module.type === 'config' && angular.isFunction(module.func);
             });
 
             /**
@@ -46,7 +53,7 @@
 
             for (var i = 0; i < configModules.length; i++) {
                 var module = configModules[i];
-                module(features, app);
+                module.func(features, app);
             }
 
             angular.bootstrap(document, [appName]);
@@ -55,4 +62,4 @@
         });
 
 
-}(define, _));
+}(define));

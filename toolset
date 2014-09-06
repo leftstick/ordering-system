@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 'use strict';
 
 var gulp = require('gulp');
@@ -57,17 +56,23 @@ var ask = function() {
 var compileLess = function(root) {
 
     var less = require('gulp-less');
+    var prefix = require('gulp-autoprefixer');
+    var sourcemap = require('gulp-sourcemaps');
     var path = require('path');
 
     var src = path.join(root, 'src');
 
     gulp.src(path.join(src, 'less', 'main.less'))
+        .pipe(sourcemap.init())
         .pipe(less({
             paths: [
                 path.join(src, 'bower')
             ]
         }))
+        .pipe(sourcemap.write())
+        .pipe(prefix('last 4 version'))
         .pipe(gulp.dest(path.join(src, 'css')));
+
 
     console.log(path.join(src, 'less', 'main.less') + ' compiled');
 
@@ -83,6 +88,7 @@ if (argv.s) {
             .pipe(webserver({
                 host: '0.0.0.0',
                 livereload: true,
+                port: 8080,
                 open: false,
                 directoryListing: false,
                 fallback: 'index.html'

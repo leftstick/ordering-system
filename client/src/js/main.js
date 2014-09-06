@@ -7,6 +7,7 @@
  *
  **/
 (function(requirejs) {
+    'use strict';
 
     // Configure loading modules from the js directory
     var baseUrl = '/';
@@ -19,17 +20,20 @@
             'common': 'js/features/common',
             'lodash': 'bower/lodash/dist/lodash.min',
             'angular': 'bower/angular/angular.min',
+            'angular-number-picker': 'bower/angular-number-picker/angular-number-picker.min',
             'mobile-angular-ui': 'bower/mobile-angular-ui/dist/js/mobile-angular-ui.min',
             'mobile-angular-ui-base-css': 'bower/mobile-angular-ui/dist/css/mobile-angular-ui-base.min',
             'require-css': 'bower/require-css',
             'angular-touch': 'bower/angular-touch/angular-touch.min',
-            'angular-route': 'bower/angular-route/angular-route.min'
+            'angular-route': 'bower/angular-route/angular-route.min',
+            'mailcss': 'css/main'
         },
         shim: {
             'lodash': {
                 exports: '_'
             },
             'angular': {
+                exports: 'angular',
                 deps: ['lodash']
             },
             'angular-touch': {
@@ -40,31 +44,21 @@
             },
             'mobile-angular-ui': {
                 deps: ['angular']
+            },
+            'angular-number-picker': {
+                deps: ['angular']
+            },
+            'mailcss': {
+                deps: ['mobile-angular-ui-base-css']
             }
         },
         map: {
             '*': {
-                'style': 'require-css/css.min'
+                'css': 'require-css/css.min'
             }
         }
     });
 
-
-    var preLoadCss = ['style!mobile-angular-ui-base-css', 'style!css/main'];
-
-    var preLoadJs = ['angular-touch',
-        'mobile-angular-ui',
-        'angular-route'
-    ];
-
-    var preLoads = preLoadCss.concat(preLoadJs);
-
-    //Load all preload dependencies
-    requirejs(preLoads, function() {
-        // Start loading the main app file. Put all of
-        // your application logic in there.
-        requirejs(['js/boot']);
-
-    });
+    requirejs(['js/boot']);
 
 }(requirejs));

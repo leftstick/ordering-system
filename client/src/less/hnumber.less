@@ -1,0 +1,33 @@
+.number-size() {
+    height: @block-height;
+    font-weight: bold;
+    font-size: @number-font-size;
+}
+
+h-number{
+
+    .input-group{
+
+        .input-group-addon{
+            .number-size();
+        }
+
+        label{
+            .number-size();
+            line-height: @block-height - 10;
+            text-align: center;
+        }
+    }
+
+    .input-group-addon.active{
+        color: @app-content-bg-color;
+        background-color: @brand-primary;
+    }
+
+    span[disabled]{
+        pointer-events: none;
+        cursor: default;
+        background-color: @disabled-background-color;
+        opacity: 1;
+    }
+}

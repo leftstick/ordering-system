@@ -13,7 +13,7 @@
 (function(define) {
     'use strict';
 
-    define([], function() {
+    define(['angular'], function(angular) {
 
         var modulename = 'osLoading';
         var module = angular.module(modulename, []);
@@ -28,7 +28,7 @@
             // Return configured, directive instance
             return {
                 restrict: 'A',
-                link: function($scope, element, attrs) {
+                link: function() {
                     $rootScope.$on('$routeChangeStart', function() {
                         $rootScope.loading = true;
                     });

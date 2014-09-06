@@ -12,10 +12,12 @@
     'use strict';
 
     define([
+        'angular',
         'features/gencode/router/Routes',
         'features/gencode/controller/GencodeController',
         'features/gencode/controller/CodeController'
-    ], function(Routes,
+    ], function(angular,
+        Routes,
         GencodeController,
         CodeController) {
 
@@ -26,8 +28,6 @@
             module.controller('GencodeController', GencodeController);
             module.controller('CodeController', CodeController);
 
-
-
             //return the module name which will be used as dependency in framework
             return {
                 name: moduleName,
@@ -35,6 +35,5 @@
             };
 
         });
-
 
 }(define));

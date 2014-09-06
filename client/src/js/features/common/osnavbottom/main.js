@@ -11,11 +11,11 @@
  *
  */
 (function(define, require) {
-    "use strict";
+    'use strict';
 
     var baseUrl = require.toUrl('common');
 
-    define([], function() {
+    define(['angular'], function(angular) {
 
         var modulename = 'osNavBottom';
         var module = angular.module(modulename, []);
@@ -25,14 +25,14 @@
          *
          * @constructor
          */
-        var osNavBottom = function($rootScope) {
+        var osNavBottom = function() {
 
             // Return configured, directive instance
             return {
                 restrict: 'A',
-                link: function($scope, element, attrs) {
+                link: function($scope) {
                     $scope.browse = function() {
-                      alert('shangwang');  
+                        alert('shangwang');
                     };
                 },
                 templateUrl: baseUrl + '/osnavbottom/main.html'
@@ -40,7 +40,7 @@
         };
 
         //Register navbar directive
-        module.directive(modulename, ['$rootScope', osNavBottom]);
+        module.directive(modulename, [osNavBottom]);
 
 
         return {

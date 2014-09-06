@@ -5,7 +5,7 @@
  *  @date    Aug 31th, 2014
  *
  */
-(function(define, _) {
+(function(define) {
     'use strict';
 
     /**
@@ -18,7 +18,7 @@
          *
          * @constructor
          */
-        var CodeController = function($rootScope, $scope, $timeout) {
+        var CodeController = function($rootScope, $scope) {
             $rootScope.hasSubtitle = true;
             $rootScope.loadFin();
 
@@ -31,9 +31,9 @@
 
         //Expose this controller definition as a RequireJS module
         //Note: specify the inline annotation explicity
-        return ['$rootScope', '$scope', '$timeout', CodeController];
+        return ['$rootScope', '$scope', CodeController];
 
     });
 
 
-})(define, _);
+})(define);

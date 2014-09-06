@@ -10,9 +10,9 @@
  *
  */
 (function(define) {
-    "use strict";
+    'use strict';
 
-    define([], function() {
+    define(['lodash'], function(_) {
 
         var config = function(features, app) {
             if (!features || features.length === 0) {
@@ -45,8 +45,8 @@
                     });
 
                     //config default page
-                    var defaultRouter = _.find(routes, function(route) {
-                        return route.isDefault;
+                    var defaultRouter = _.find(routes, {
+                        isDefault: true
                     });
                     if (defaultRouter) {
                         $routeProvider.otherwise({
@@ -59,7 +59,10 @@
 
         };
 
-        return config;
+        return {
+            type: 'config',
+            func: config
+        };
 
     });
 
