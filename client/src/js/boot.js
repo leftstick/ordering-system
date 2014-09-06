@@ -22,6 +22,7 @@
         'common/osloading/main',
         'common/osnavtop/main',
         'common/osnavbottom/main',
+        'common/osoverlay/main',
         'features/gencode/main'
     ], function() {
 

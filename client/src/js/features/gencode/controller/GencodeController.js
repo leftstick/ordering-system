@@ -18,7 +18,7 @@
          *
          * @constructor
          */
-        var GencodeController = function($rootScope, $scope, $timeout, $location) {
+        var GencodeController = function($rootScope, $scope, $timeout, $location, osOverlay) {
             $rootScope.hasSubtitle = true;
             $rootScope.loadFin();
             $scope.finalNum = 0;
@@ -30,6 +30,9 @@
             var promise;
 
             $rootScope.$on('mobile-angular-ui.toggle.toggled', function(e, id, state) {
+                if (!$scope.idStateMap[id]) {
+                    return;
+                }
                 $scope.idStateMap[id].state = state;
                 if (promise) {
                     $timeout.cancel(promise);
@@ -49,7 +52,15 @@
             });
 
             $scope.confirm = function() {
-                $location.url('/code/' + $scope.finalNum);
+                osOverlay.show({
+                    title: '确认',
+                    message: '您确定要订一个' + $scope.finalNum + '人餐位么？',
+                    yesHandler: function($event) {
+                        $rootScope.toggle('overlay', 'off');
+                        $location.url('/code/' + $scope.finalNum);
+                        $event.stopPropagation();
+                    }
+                });
             };
 
             $scope.$watch('input.custom', function(newValue) {
@@ -63,7 +74,7 @@
 
         //Expose this controller definition as a RequireJS module
         //Note: specify the inline annotation explicity
-        return ['$rootScope', '$scope', '$timeout', '$location', GencodeController];
+        return ['$rootScope', '$scope', '$timeout', '$location', 'osOverlay', GencodeController];
 
     });
 
