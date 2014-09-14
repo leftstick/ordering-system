@@ -1,37 +1,10 @@
-#!/usr/bin/env node
 'use strict';
-
 var gulp = require('gulp');
-var chalk = require('chalk');
-var inquirer = require('inquirer');
-var Q = require('q');
-
-var yargs = require('yargs')
-    .alias({
-        's': 'start',
-        'i': 'install'
-    })
-    .describe({
-        's': 'start a static webserver for specified app',
-        'i': 'install dependencies for specified app'
-    })
-    .usage('Usage: toolset [options]')
-    .boolean(['s', 'i']);
-
-var warn = function(msg) {
-    console.log(chalk.bold.cyan(msg));
-};
-
-
-var argv = yargs.argv;
-if (!argv.s && !argv.i) {
-    yargs.showHelp(warn);
-    process.exit(0);
-}
-
 
 var ask = function() {
 
+    var inquirer = require('inquirer');
+    var Q = require('q');
     var deferred = Q.defer();
 
     inquirer.prompt([
@@ -78,8 +51,8 @@ var compileLess = function(root) {
 
 };
 
-if (argv.s) {
 
+gulp.task('start', function(cons) {
     ask().then(function(answer) {
 
         var webserver = require('gulp-webserver');
@@ -100,10 +73,14 @@ if (argv.s) {
             compileLess(answer.appname);
         });
 
+        cons();
+
     });
 
-} else if (argv.i) {
+});
 
+
+gulp.task('install', function(cons) {
     ask().then(function(answer) {
         var exec = require('child_process').exec;
 
@@ -112,12 +89,13 @@ if (argv.s) {
             cwd: answer.appname
         }, function(error) {
                 if (error) {
+                    cons(error);
                     return;
                 }
+                cons();
             });
 
         cp.stdout.pipe(process.stdout);
         cp.stderr.pipe(process.stderr);
     });
-
-}
+});

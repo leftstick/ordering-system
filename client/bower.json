@@ -20,13 +20,13 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.23",
-    "angular-touch": "~1.2.23",
-    "requirejs": "~2.1.14",
+    "angular": "~1.2.24",
+    "angular-touch": "~1.2.24",
+    "requirejs": "~2.1.15",
     "lodash": "~2.4.1",
     "require-css": "~0.1.5",
     "mobile-angular-ui": "~1.1.0-beta.29",
-    "angular-route": "~1.2.23",
+    "angular-route": "~1.2.24",
     "angular-number-picker": "~1.0.2"
   }
 }

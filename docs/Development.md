@@ -6,11 +6,13 @@
 - [angularjs][angularjs-url]
 - [requirejs][requirejs-url]
 - [Mobile Angular UI][mobileangular-url]
+- [gulp][gulp-url]
 
 
 ### Environment Setup ###
 
 - Install [nodejs][nodejs-url]. Ignore if you have it installed
+- Install [gulp][gulp-url] globally
 - Execute `npm install` at root folder of `ordering-system` to install `develop-tool`'s dependencies
 
 
@@ -19,7 +21,7 @@
 #### Install bower dependencies for specified app ####
 
 ```powershell
-toolset -install
+gulp install
 ```
 
 Choose the app that you'd like to play with, and press `Enter`. The bower dependencies will be installed for you.
@@ -28,7 +30,7 @@ Choose the app that you'd like to play with, and press `Enter`. The bower depend
 #### Start static webserver for specified app ####
 
 ```powershell
-toolset -start
+gulp start
 ```
 
 Choose the app that you'd like to play with, and press `Enter`. A webserver launched for that app.
@@ -40,3 +42,4 @@ Choose the app that you'd like to play with, and press `Enter`. A webserver laun
 [angularjs-url]: https://angularjs.org/
 [requirejs-url]: http://www.requirejs.org/
 [mobileangular-url]: http://mobileangularui.com/
+[gulp-url]: http://gulpjs.com/
