@@ -16,6 +16,8 @@
         baseUrl: baseUrl,
         paths: {
             'fw': 'js/fw',
+            'conf': 'js/fw/conf',
+            'libs': 'js/fw/libs',
             'features': 'js/features',
             'common': 'js/features/common',
             'lodash': 'bower/lodash/dist/lodash.min',
