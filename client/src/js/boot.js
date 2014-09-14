@@ -18,6 +18,8 @@
         'angular-number-picker',
         'css!mobile-angular-ui-base-css',
         'css!mailcss',
+        'conf/HeadConfig',
+        'conf/BodyConfig',
         'conf/RouteConfig',
         'common/osloading/main',
         'common/osnavtop/main',

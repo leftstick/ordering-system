@@ -15,6 +15,7 @@
     requirejs.config({
         baseUrl: baseUrl,
         paths: {
+            'utils': 'js/utils',
             'fw': 'js/fw',
             'conf': 'js/fw/conf',
             'libs': 'js/fw/libs',
@@ -26,6 +27,7 @@
             'mobile-angular-ui': 'bower/mobile-angular-ui/dist/js/mobile-angular-ui.min',
             'mobile-angular-ui-base-css': 'bower/mobile-angular-ui/dist/css/mobile-angular-ui-base.min',
             'require-css': 'bower/require-css',
+            'tpl': 'bower/requirejs-tpl/tpl',
             'angular-touch': 'bower/angular-touch/angular-touch.min',
             'angular-route': 'bower/angular-route/angular-route.min',
             'mailcss': 'css/main'
